@@ -61,12 +61,6 @@ def formatPrint(fTrain, fTest, name):
 	print "{0}/{1}({2})".format(A[0], B[0], round(A[0] / (1.0* B[0]), 2)),
 	print "{0}/{1}({2})".format(A[1], B[1], round(A[1] / (1.0* B[1]), 2))
 	
-N, F = train("heart-data\spect-orig.train.csv")
-A, B = test("heart-data\spect-orig.test.csv", N, F)
-print "orig {0}/{1}({2})".format(A[0] + A[1], B[0] + B[1], round((A[0] + A[1])/(1.0 * B[0] + B[1]),2)),
-print "{0}/{1}({2})".format(A[0], B[0], round(A[0] / (1.0* B[0]), 2)),
-print "{0}/{1}({2})".format(A[1], B[1], round(A[1] / (1.0* B[1]), 2))
-
 formatPrint("heart-data\spect-orig.train.csv", "heart-data\spect-orig.test.csv", "orig")
-formatPrint("heart-data\spect-orig.train.csv", "heart-data\spect-orig.test.csv", "orig")
-formatPrint("heart-data\spect-orig.train.csv", "heart-data\spect-orig.test.csv", "orig")
+formatPrint("heart-data\spect-itg.train.csv", "heart-data\spect-itg.test.csv", "itg")
+formatPrint("heart-data\spect-resplit.train.csv", "heart-data\spect-resplit.test.csv", "resplit")
