@@ -55,8 +55,8 @@ def classify(c, N, F):
         return 1
     return 0
 
-N, F = train("spect-orig.train.csv")
-A, B = test("spect-orig.test.csv", N, F)
+N, F = train("heart-data\spect-orig.train.csv")
+A, B = test("heart-data\spect-orig.test.csv", N, F)
 print N
 print F
 print A
