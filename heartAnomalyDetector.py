@@ -49,16 +49,24 @@ def classify(c, N, F):
             if c[j] == 0:
                 s = N[i] - s
             L[i] = L[i] + math.log(s+0.5) - math.log(N[i]+0.5)
-    print L[0],
-    print L[1]
     if L[1] > L[0]:
         return 1
     return 0
-
+	
+def formatPrint(fTrain, fTest, name):
+	"""Runs the training and test sets for a specified file"""
+	N, F = train(fTrain)
+	A, B = test(fTest, N, F)
+	print "{3} {0}/{1}({2})".format(A[0] + A[1], B[0] + B[1], round((A[0] + A[1])/(1.0 * B[0] + B[1]),2), name),
+	print "{0}/{1}({2})".format(A[0], B[0], round(A[0] / (1.0* B[0]), 2)),
+	print "{0}/{1}({2})".format(A[1], B[1], round(A[1] / (1.0* B[1]), 2))
+	
 N, F = train("heart-data\spect-orig.train.csv")
 A, B = test("heart-data\spect-orig.test.csv", N, F)
-print N
-print F
-print A
-print B
+print "orig {0}/{1}({2})".format(A[0] + A[1], B[0] + B[1], round((A[0] + A[1])/(1.0 * B[0] + B[1]),2)),
+print "{0}/{1}({2})".format(A[0], B[0], round(A[0] / (1.0* B[0]), 2)),
+print "{0}/{1}({2})".format(A[1], B[1], round(A[1] / (1.0* B[1]), 2))
 
+formatPrint("heart-data\spect-orig.train.csv", "heart-data\spect-orig.test.csv", "orig")
+formatPrint("heart-data\spect-orig.train.csv", "heart-data\spect-orig.test.csv", "orig")
+formatPrint("heart-data\spect-orig.train.csv", "heart-data\spect-orig.test.csv", "orig")
